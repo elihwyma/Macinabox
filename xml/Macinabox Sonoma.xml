@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <domain type='kvm' xmlns:qemu='http://libvirt.org/schemas/domain/qemu/1.0'>
-  <name>Macinabox Monterey</name>
-  <description>MacOS Monterey</description>
+  <name>Macinabox Sonoma</name>
+  <description>MacOS Sonoma</description>
   <metadata>
-   <vmtemplate xmlns="unraid" name="Windows 10" icon="Monterey.png" os="osx"/>
+   <vmtemplate xmlns="unraid" name="Windows 10" icon="Sonoma.png" os="osx"/>
   </metadata>
   <memory unit='KiB'>4194304</memory>
   <currentMemory unit='KiB'>4194304</currentMemory>
@@ -39,20 +39,20 @@
     <emulator>/usr/local/sbin/qemu</emulator>
     <disk type='file' device='disk'>
       <driver name='qemu' type='raw' cache='writeback'/>
-      <source file='XXXXMacinabox Monterey/Monterey-opencore.img'/>
+      <source file='XXXXMacinabox Sonoma/Sonoma-opencore.img'/>
       <target dev='hdc' bus='sata'/>
       <boot order='1'/>
       <address type='drive' controller='0' bus='0' target='0' unit='2'/>
     </disk>
     <disk type='file' device='disk'>
       <driver name='qemu' type='raw' cache='writeback'/>
-      <source file='YYYYMonterey-install.img'/>
+      <source file='YYYYSonoma-install.img'/>
       <target dev='hdd' bus='sata'/>
       <address type='drive' controller='0' bus='0' target='0' unit='3'/>
     </disk>
     <disk type='file' device='disk'>
       <driver name='qemu' type='ZZZZ' cache='writeback'/>
-      <source file='XXXXMacinabox Monterey/macos_disk.img'/>
+      <source file='XXXXMacinabox Sonoma/macos_disk.img'/>
       <target dev='hde' bus='virtio'/>
      <address type='pci' domain='0x0000' bus='0x03' slot='0x00' function='0x0'/>
     </disk>
