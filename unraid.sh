@@ -450,6 +450,27 @@ fi
 		fi
 	
 		}
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# #  Pull Sonoma if not already downloaded    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 	
+	
+		pullsonoma() {
+
+			if [ ! -e /isos/Sonoma-install.img ] ; then
+				echo "I am going to download the Sonoma recovery media. Please be patient!"
+			    echo "."
+			    echo "."
+		    python3 "/Macinabox/tools/FetchMacOS/fetch-macOS-v2.py" -s sonoma || exit 1;
+		
+		else
+			echo "Media already exists. I have already downloaded the Sonoma install media before"
+		    echo "."
+		    echo "."
+
+		fi
+	
+		}
 		
 						
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -582,7 +603,15 @@ elif [ "$flavour" == "Monterey" ] ; then
 	DOMAIN=/domains/"$XML"
 	replaceopencore
 	pullmonterey
-	automanual				
+	automanual
+elif [ "$flavour" == "Sonoma" ] ; then
+	XML="Macinabox Sonoma"
+	nictype="virtio"
+	NAME="Sonoma"
+	DOMAIN=/domains/"$XML"
+	replaceopencore
+	pullsonoma
+	automanual					
 else
 	echo "I dont know what OS to try and download? Is your template correct?"
 
